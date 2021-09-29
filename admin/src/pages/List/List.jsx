@@ -1,13 +1,23 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./list.scss";
+import {updateList} from '../../context/listContext/apiCalls'
 
 export default function List() {
 	const location = useLocation();
 	const list = location.list;
 
+	const [newList, setNewList] = useState(list);
+
+	const handleChange = (e) => {
+		const value = e.target.value;
+		setNewList({ ...list, [e.target.name]: value });
+	};
+
 	const handleSubmit = (e) => {
-		
-	}
+		e.preventDefault();
+		// updateList()
+	};
 
 	return (
 		<div className="list">
@@ -53,6 +63,7 @@ export default function List() {
 								placeholder="Movie Title"
 								name="title"
 								value={list.title}
+								onChange={handleChange}
 							/>
 						</div>
 						<div className="inputContainer">
@@ -63,6 +74,7 @@ export default function List() {
 								placeholder="Genre"
 								name="genre"
 								value={list.genre}
+								onChange={handleChange}
 							/>
 						</div>
 					</div>

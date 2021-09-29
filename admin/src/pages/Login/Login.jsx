@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { login } from "../../context/authContext/apiCalls";
-import { AuthContext } from "../../context/authContext/authContext";
+import { AuthContext } from "../../context/authContext/auth.context";
 import { ToastContainer } from "react-toastify";
 import "./Login.scss";
 

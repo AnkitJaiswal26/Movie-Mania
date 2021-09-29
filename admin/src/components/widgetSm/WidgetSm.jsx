@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import "./widgetSm.scss";
-import { Visibility } from "@material-ui/icons";
-import { AuthContext } from "../../context/authContext/authContext";
+import { AuthContext } from "../../context/authContext/auth.context";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -11,7 +10,6 @@ export default function WidgetSm() {
 
 	useEffect(() => {
 		const getNewUsers = async () => {
-			console.log(user.accessToken)
 			try {
 				const res = await axios.get("/users?new=true", {
 					headers: {

@@ -13,7 +13,7 @@ import {
 	updateMovieFailure,
 	updateMovieStart,
 	updateMovieSuccess,
-} from "./movieAction";
+} from "./movie.action";
 
 export const getMovies = async (dispatch) => {
 	dispatch(getMoviesStart());
@@ -76,12 +76,10 @@ export const updateMovie = async (movie, dispatch) => {
 					JSON.parse(localStorage.getItem("user")).accessToken,
 			},
 		});
-		console.log(res.data);
 		dispatch(updateMovieSuccess(res.data));
 		toast.success("Movie Updated Successfully!")
 	} catch (err) {
-		console.log(err);
 		dispatch(updateMovieFailure());
-		toast.success("Some error occured. Please try again later!")
+		toast.error("Some error occured. Please try again later!")
 	}
 };

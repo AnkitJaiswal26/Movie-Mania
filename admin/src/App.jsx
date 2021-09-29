@@ -16,7 +16,7 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/Login/Login";
-import { AuthContext } from "./context/authContext/authContext";
+import { AuthContext } from "./context/authContext/auth.context";
 import ListList from "./pages/ListList/ListList";
 import List from "./pages/List/List";
 import NewList from "./pages/newList/NewList";

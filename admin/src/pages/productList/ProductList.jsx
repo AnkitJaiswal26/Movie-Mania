@@ -2,8 +2,8 @@ import "./productList.scss";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import { MovieContext } from "../../context/movieContext/movieContext";
+import { useContext, useEffect } from "react";
+import { MovieContext } from "../../context/movieContext/movie.context";
 import { getMovies, deleteMovie } from "../../context/movieContext/apicalls";
 
 export default function ProductList() {
@@ -45,7 +45,6 @@ export default function ProductList() {
 			headerName: "Action",
 			width: 150,
 			renderCell: (params) => {
-				console.log(params.row)
 				return (
 					<>
 						<Link
@@ -72,7 +71,7 @@ export default function ProductList() {
 				rows={movies}
 				disableSelectionOnClick
 				columns={columns}
-				pageSize={8}
+				pageSize={9}
 				checkboxSelection
 				getRowId={(r) => r._id}
 			/>

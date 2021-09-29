@@ -4,6 +4,7 @@ import "./home.scss";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import axios from 'axios'
+import { toast } from "react-toastify";
 
 export default function Home() {
 	const MONTHS = useMemo(
@@ -44,7 +45,7 @@ export default function Home() {
 					])
 				);
 			} catch (err) {
-				console.log(err);
+				toast.error(err.response.data)
 			}
 		};
 		getStats();

@@ -1,9 +1,11 @@
 import "./newProduct.scss";
 import { useContext, useState } from "react";
+import { useHistory } from "react-router";
 import storage from "../../firebaseSetup";
-import { MovieContext } from "../../context/movieContext/movieContext";
+import { MovieContext } from "../../context/movieContext/movie.context";
 import { createMovie } from "../../context/movieContext/apicalls";
 import Select from "react-select";
+import { toast } from "react-toastify";
 
 export default function NewProduct() {
 	const [movie, setMovie] = useState(null);
@@ -13,6 +15,8 @@ export default function NewProduct() {
 	const [trailer, setTrailer] = useState(null);
 	const [video, setVideo] = useState(null);
 	const [uploaded, setUploaded] = useState(0);
+
+	const history = useHistory();
 
 	const { dispatch } = useContext(MovieContext);
 
@@ -25,10 +29,10 @@ export default function NewProduct() {
 				(snapshot) => {
 					const progress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-					console.log("Upload is " + progress + "% done.");
+					toast.success("Upload is " + progress + "% done.");
 				},
 				(err) => {
-					console.log(err);
+					toast.error(err);
 				},
 				() => {
 					uploadTask.snapshot.ref.getDownloadURL().then((url) => {
@@ -65,6 +69,7 @@ export default function NewProduct() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		createMovie(movie, dispatch);
+		history.push("/movies");
 	};
 	return (
 		<div className="newProduct">

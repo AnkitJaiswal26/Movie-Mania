@@ -1,7 +1,7 @@
 import "./newList.scss";
 import { useContext, useEffect, useState } from "react";
-import { MovieContext } from "../../context/movieContext/movieContext";
-import { ListContext } from "../../context/listContext/listContext";
+import { MovieContext } from "../../context/movieContext/movie.context";
+import { ListContext } from "../../context/listContext/list.context";
 
 import { getMovies } from "../../context/movieContext/apicalls";
 import { createList } from "../../context/listContext/apiCalls";

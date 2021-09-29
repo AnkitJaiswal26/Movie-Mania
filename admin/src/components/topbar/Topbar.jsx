@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./topbar.scss";
-import { AuthContext } from "../../context/authContext/authContext";
-import { logout } from "../../context/authContext/authActions";
+import { AuthContext } from "../../context/authContext/auth.context";
+import { logout } from "../../context/authContext/auth.action";
 import logo from "../../logo.png";
 
 export default function Topbar() {

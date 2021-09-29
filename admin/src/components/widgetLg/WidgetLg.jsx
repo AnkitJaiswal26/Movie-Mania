@@ -1,7 +1,8 @@
 import "./widgetLg.scss";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { AuthContext } from "../../context/authContext/authContext";
+import { AuthContext } from "../../context/authContext/auth.context";
+import { toast } from "react-toastify";
 
 export default function WidgetLg() {
 	const [newMovies, setNewMovies] = useState([]);
@@ -17,11 +18,11 @@ export default function WidgetLg() {
 				});
 				setNewMovies(res.data);
 			} catch (err) {
-				console.log(err);
+				toast.error(err);
 			}
 		};
 		getNewMovies();
-	}, []);
+	},[]);
 
 	return (
 		<div className="widgetLg">

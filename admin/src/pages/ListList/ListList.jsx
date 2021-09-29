@@ -3,7 +3,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { ListContext } from "../../context/listContext/listContext";
+import { ListContext } from "../../context/listContext/list.context";
 import { getLists, deleteList } from "../../context/listContext/apiCalls";
 
 export default function ListList() {

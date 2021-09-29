@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-import { loginFailure, loginStart, loginSuccess } from "./authActions";
+import { loginFailure, loginStart, loginSuccess } from "./auth.action";
 
 export const login = async (user, dispatch) => {
 	dispatch(loginStart());
@@ -10,7 +10,6 @@ export const login = async (user, dispatch) => {
 	} catch (err) {
 		dispatch(loginFailure());
 		const { status, data } = err.response;
-		console.log(data);
 		if (status === 500) {
 			toast.error("Server not connected!");
 		} else {

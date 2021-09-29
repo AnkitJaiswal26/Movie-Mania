@@ -2,9 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import storage from "../../firebaseSetup";
 import { useContext, useState } from "react";
 import "./product.scss";
-import { Publish } from "@material-ui/icons";
 import { updateMovie } from "../../context/movieContext/apicalls";
-import { MovieContext } from "../../context/movieContext/movieContext";
+import { MovieContext } from "../../context/movieContext/movie.context";
+import { toast } from "react-toastify";
 
 export default function Product() {
 	const location = useLocation();
@@ -32,10 +32,10 @@ export default function Product() {
 				(snapshot) => {
 					const progress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-					console.log("Upload is " + progress + "% done.");
+					toast.success("Upload is " + progress + "% done.");
 				},
 				(err) => {
-					console.log(err);
+					toast.error(err);
 				},
 				() => {
 					uploadTask.snapshot.ref.getDownloadURL().then((url) => {
