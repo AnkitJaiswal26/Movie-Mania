@@ -5,7 +5,6 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/auth.context";
 import { logout } from "../../authContext/auth.action";
-import { LocalDiningOutlined } from "@material-ui/icons";
 import logo from '../../logo.png'
 
 const Navbar = () => {
@@ -28,12 +27,15 @@ const Navbar = () => {
 					<Link to="/" className="link">
 						<span>Home</span>
 					</Link>
-					<Link to="/series" className="link">
-						<span className="navbarmainLinks">Series</span>
-					</Link>
 					<Link to="/movies" className="link">
 						<span className="navbarmainLinks">Movies</span>
 					</Link>
+					{/* <Link to="/movies" className="link">
+						<span className="navbarmainLinks">Bookmarks</span>
+					</Link>
+					<Link to="/movies" className="link">
+						<span className="navbarmainLinks">Watchlist</span>
+					</Link> */}
 				</div>
 				<div className="right">
 					<img

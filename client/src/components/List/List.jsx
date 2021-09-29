@@ -27,7 +27,7 @@ const List = ({ list }) => {
 	};
 	return (
 		<div className="list">
-			<span className="listTitle">
+			<span className="listTitle" style={{ color: "#000" }}>
 				{list ? list.title : "Continue to watch"}
 			</span>
 			<div className="wrapper">

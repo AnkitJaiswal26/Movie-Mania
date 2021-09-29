@@ -11,6 +11,8 @@ import {
 import { AuthContext } from "./authContext/auth.context";
 import { useContext } from "react";
 import Login from "./pages/Login/Login";
+import { ToastContainer } from "react-toastify";
+import Movies from "./pages/Movies/Movies";
 
 function App() {
 	const { user } = useContext(AuthContext);
@@ -28,8 +30,12 @@ function App() {
 				</Route>
 				{user ? (
 					<>
-						<Route path="/movies">
+						<ToastContainer />
+						<Route path="/movie">
 							<Home type="movie" />
+						</Route>
+						<Route path="/movies">
+							<Movies />
 						</Route>
 						<Route path="/series">
 							<Home type="series" />
